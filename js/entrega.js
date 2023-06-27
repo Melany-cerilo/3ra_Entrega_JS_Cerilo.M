@@ -151,17 +151,18 @@ function confirmarCompra() {
 }
 
 function comprarColeccion() {
+  //Creo variable auxiliar respuestaUsuario.
   let respuestaUsuario;
   let cantidadTomos;
 
   alert(
     "¡Aprovecha nuestro descuento especial! Cuantos más tomos elijas, mayor será el descuento aplicado a tu compra. No dudes en llevarte toda la colección."
   );
-
+  //Guardo resultado de prompt en string para poder validar null en el caso de que el usuario cancele.
   respuestaUsuario = prompt(
     "Por favor, ingresa del 1 al 23 el número del último tomo que deseas adquirir. Por ejemplo, si deseas comprar hasta el tomo 5, ingresa 5. Esto incluirá todos los mangas desde el primer tomo hasta el número que indiques."
   );
-
+  //Parseo la respuesta del usuario para simplificar la validación númerica.
   cantidadTomos = parseInt(respuestaUsuario);
   if (cantidadTomos > 0 && cantidadTomos <= 23) {
     tomosElegidos(cantidadTomos);
