@@ -1,0 +1,136 @@
+.font-bangers {
+  font-family: "Bangers", cursive;
+}
+body {
+  background-color: black;
+}
+
+/* .titulo {
+  padding-top: 2rem;
+  padding-bottom: 6rem;
+}
+.titulo h1 {
+  color: white;
+  font-size: 4.5rem;
+}
+ */
+.foto_generos {
+  width: 100%;
+  height: 27.5rem;
+}
+/* .borde {
+  height: 27rem;
+  margin: 3rem;
+}
+.borde p {
+  padding-left: 1rem;
+  padding-right: 22rem;
+  padding-top: 1rem;
+  font-size: 0.7rem;
+}
+.borde h4,
+h5 {
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+  font-size: 1rem;
+} */
+
+.footer-bottom__copyright {
+  text-align: center;
+  color: gray;
+  background-color: black;
+}
+.footer-bottom__copyright a {
+  color: gray;
+  text-decoration: none;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.card-body {
+  background-color: #f2f1ed;
+}
+
+.fondo {
+  background-image: url("../img/nezuko.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+@media (min-width: 300px) {
+  .borde {
+    height: 27rem;
+    width: 9rem;
+    margin: 0.4rem;
+  }
+  .borde p {
+    font-size: 0.7rem;
+  }
+  .borde h4,
+  h5 {
+    padding-top: 0.3rem;
+    padding-left: 0.4rem;
+    font-size: 1rem;
+  }
+  .titulo {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .titulo h1 {
+    color: white;
+    font-size: 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .borde {
+    height: 27rem;
+    margin: 1rem;
+  }
+  .borde p {
+    padding-left: 0.5rem;
+    padding-right: 12rem;
+    padding-top: 1rem;
+    font-size: 0.8rem;
+  }
+  .borde h4,
+  h5 {
+    padding-top: 0.3rem;
+    padding-left: 0.4rem;
+    font-size: 1rem;
+  }
+  .titulo {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .titulo h1 {
+    color: white;
+    font-size: 4rem;
+  }
+}
+@media (min-width: 1200px) {
+  .borde {
+    height: 27rem;
+    margin: 1rem;
+  }
+  .borde p {
+    padding-left: 0.5rem;
+    padding-right: 24rem;
+    padding-top: 0.5rem;
+    font-size: 1rem;
+  }
+  .borde h4,
+  h5 {
+    padding-top: 0.3rem;
+    padding-left: 0.4rem;
+    font-size: 1.4rem;
+  }
+  .titulo {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .titulo h1 {
+    color: white;
+    font-size: 5rem;
+  }
+}
