@@ -5,35 +5,10 @@ body {
   background-color: black;
 }
 
-/* .titulo {
-  padding-top: 2rem;
-  padding-bottom: 6rem;
-}
-.titulo h1 {
-  color: white;
-  font-size: 4.5rem;
-}
- */
 .foto_generos {
   width: 100%;
   height: 27.5rem;
 }
-/* .borde {
-  height: 27rem;
-  margin: 3rem;
-}
-.borde p {
-  padding-left: 1rem;
-  padding-right: 22rem;
-  padding-top: 1rem;
-  font-size: 0.7rem;
-}
-.borde h4,
-h5 {
-  padding-top: 0.5rem;
-  padding-left: 0.5rem;
-  font-size: 1rem;
-} */
 
 .footer-bottom__copyright {
   text-align: center;
