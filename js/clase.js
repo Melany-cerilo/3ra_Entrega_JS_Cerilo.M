@@ -140,12 +140,16 @@ class CompraTomos {
 
     console.log("Tu total a pagar es: $" + totalConDescuento);
   }
+  ordenarPorNumTomo() {
+    this.tomosElegidos.sort((a, b) => a.numeroTomo - b.numeroTomo);
+  }
   iniciarCompra() {
     alert(
       "¡Aprovecha nuestro descuento especial! Cuantos más tomos elijas, mayor será el descuento aplicado a tu compra. No dudes en llevarte toda la colección."
     );
     this.eleccionTomos();
     if (this.tomosElegidos.length > 0) {
+      this.ordenarPorNumTomo();
       this.mostrarTomosElegidos();
       if (this.confirmarCompra()) {
         this.calcularDescuentov2();
@@ -153,10 +157,3 @@ class CompraTomos {
     }
   }
 }
-
-function ejecutarCompra() {
-  let compra = new CompraTomos();
-  compra.iniciarCompra();
-}
-
-ejecutarCompra();
