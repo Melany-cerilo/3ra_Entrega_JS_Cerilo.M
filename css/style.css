@@ -9,7 +9,6 @@ body {
   width: 100%;
   height: 27.5rem;
 }
-
 .footer-bottom__copyright {
   text-align: center;
   color: gray;
@@ -33,6 +32,18 @@ body {
   background-size: cover;
   background-position: center;
 }
+th,
+td {
+  color: white;
+}
+.sub {
+  color: white;
+  margin-bottom: 3rem;
+}
+.muestratotal {
+  background-color: rgb(137, 18, 18);
+  color: white;
+}
 @media (min-width: 300px) {
   .borde {
     height: 27rem;
@@ -45,16 +56,31 @@ body {
   .borde h4,
   h5 {
     padding-top: 0.3rem;
-    padding-left: 0.4rem;
+    padding-left: 0.1rem;
     font-size: 1rem;
   }
   .titulo {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 0.9rem;
   }
   .titulo h1 {
     color: white;
+    font-size: 1.4rem;
+  }
+  .titulo_carrito h1 {
+    color: white;
     font-size: 2rem;
+  }
+  .carrito {
+    display: inline;
+    width: 40px;
+    float: right;
+    margin-top: 20px;
+    padding-right: 8px;
+  }
+  h2,
+  h6 {
+    font-size: 20px !important;
   }
 }
 @media (min-width: 768px) {
@@ -82,6 +108,21 @@ body {
     color: white;
     font-size: 4rem;
   }
+  .titulo_carrito h1 {
+    color: white;
+    font-size: 4rem;
+  }
+  h2,
+  h6 {
+    font-size: 35px !important;
+  }
+  .carrito {
+    display: inline;
+    width: 50px;
+    float: right;
+    margin-top: 20px;
+    padding-right: 8px;
+  }
 }
 @media (min-width: 1200px) {
   .borde {
@@ -107,5 +148,21 @@ body {
   .titulo h1 {
     color: white;
     font-size: 5rem;
+    margin-left: 5.5rem;
+  }
+  .titulo_carrito h1 {
+    color: white;
+    font-size: 5rem;
+  }
+  .carrito {
+    display: inline;
+    width: 60px;
+    float: right;
+    margin-top: 20px;
+    padding-right: 8px;
+  }
+  h2,
+  h6 {
+    font-size: 47px !important;
   }
 }
