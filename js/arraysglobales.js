@@ -148,4 +148,4 @@ function recuperarCarrito() {
   }
 }
 
-const tomosParaCarrito = recuperarCarrito();
+let tomosParaCarrito = recuperarCarrito();

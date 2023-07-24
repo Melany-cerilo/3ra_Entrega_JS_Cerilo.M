@@ -88,6 +88,12 @@ function realizarCompra() {
         "Gracias por tu compra, hasta la proxima.",
         "success"
       );
+      tomosParaCarrito = [];
+      localStorage.setItem(
+        "tomosParaCarrito",
+        JSON.stringify(tomosParaCarrito)
+      );
+      armarPaginaCarrito();
     } else {
       Swal.fire(
         "Seleccionar al menos un tomo",
@@ -106,13 +112,3 @@ function armarPaginaCarrito() {
 }
 
 armarPaginaCarrito();
-/* const indexEliminar = tomosParaCarrito.findIndex(
-  (tomo) => tomo.numeroTomo === parseInt(10)
-);
-tomosParaCarrito.splice(indexEliminar, 1);
-
-tomosParaCarrito.splice(
-  tomosParaCarrito.findIndex((tomo) => tomo.numeroTomo === parseInt(10)),
-  1
-);
- */
