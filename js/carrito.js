@@ -108,7 +108,7 @@ function armarPaginaCarrito() {
   armarHTMLCarrito();
   eventosEliminarTomoCarrito();
   calcularDescuento();
-  realizarCompra();
 }
 
 armarPaginaCarrito();
+realizarCompra();
