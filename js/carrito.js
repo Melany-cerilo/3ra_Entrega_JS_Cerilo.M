@@ -18,9 +18,9 @@ function tomosEnCarritoHTML(tomo) {
 
 function armarHTMLCarrito() {
   tabla.innerHTML = "";
-  if (tomosParaCarrito.length > 0) {
-    tomosParaCarrito.sort((a, b) => a.numeroTomo - b.numeroTomo);
-    tomosParaCarrito.forEach((tomo) => {
+  if (carrito.estaLleno()) {
+    carrito.ordenarAsc();
+    carrito.getCarrito().forEach((tomo) => {
       tabla.innerHTML += tomosEnCarritoHTML(tomo);
     });
   }
@@ -32,21 +32,14 @@ function eventosEliminarTomoCarrito() {
   );
   botonesEliminar.forEach((boton) => {
     boton.addEventListener("click", () => {
-      const tomoAquitar = tomosParaCarrito.findIndex(
-        (tomo) => tomo.numeroTomo === parseInt(boton.id)
-      );
-      tomosParaCarrito.splice(tomoAquitar, 1);
-      localStorage.setItem(
-        "tomosParaCarrito",
-        JSON.stringify(tomosParaCarrito)
-      );
+      carrito.eliminarTomoPorNum(boton.id);
       armarPaginaCarrito();
     });
   });
 }
 
 function calcularDescuento() {
-  let cantidadTomos = tomosParaCarrito.length;
+  let cantidadTomos = carrito.getCantidad();
   let descuento;
   if (cantidadTomos >= 5 && cantidadTomos <= 10) {
     descuento = 10;
@@ -57,23 +50,19 @@ function calcularDescuento() {
   } else if (cantidadTomos > 0 && cantidadTomos < 5) {
     descuento = 0;
   }
-  let total = tomosParaCarrito.reduce(
-    (acumulador, tomoElegido) => acumulador + tomoElegido.precio,
-    0
-  );
+  let total = carrito.getTotal();
   let importeDescuento = (descuento / 100) * total;
   let totalConDescuento = total - importeDescuento;
 
-  if (descuento > 0) {
-    muestraTotal.textContent =
-      "Se te realizó un descuento del %" +
-      descuento +
-      ", " +
-      "Tu total a pagar es de: $" +
-      totalConDescuento;
-  } else {
-    muestraTotal.textContent = "Tu total a pagar es: $" + total;
-  }
+  //se agrega OP ternario pero se me acomoda de esta forma automaticamente.
+  descuento > 0
+    ? (muestraTotal.textContent =
+        "Se te realizó un descuento del %" +
+        descuento +
+        ", " +
+        "Tu total a pagar es de: $" +
+        totalConDescuento)
+    : (muestraTotal.textContent = "Tu total a pagar es: $" + total);
 }
 
 function realizarCompra() {
@@ -82,17 +71,13 @@ function realizarCompra() {
   );
 
   botonRealizarCompra.addEventListener("click", () => {
-    if (tomosParaCarrito.length > 0) {
+    if (carrito.estaLleno()) {
       Swal.fire(
         "Compra realizada con exito",
         "Gracias por tu compra, hasta la proxima.",
         "success"
       );
-      tomosParaCarrito = [];
-      localStorage.setItem(
-        "tomosParaCarrito",
-        JSON.stringify(tomosParaCarrito)
-      );
+      carrito.vaciar();
       armarPaginaCarrito();
     } else {
       Swal.fire(
@@ -109,6 +94,8 @@ function armarPaginaCarrito() {
   eventosEliminarTomoCarrito();
   calcularDescuento();
 }
+
+// ________________________________
 
 armarPaginaCarrito();
 realizarCompra();
