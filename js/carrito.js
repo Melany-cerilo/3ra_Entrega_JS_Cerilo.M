@@ -3,6 +3,11 @@ const botonRealizarCompra = document.querySelector(
   "button#botonComprar.botonComprar.btn.btn-light"
 );
 const muestraTotal = document.querySelector("div.muestratotal.card-body");
+const productosEnCarrito = document.querySelector("span#productosEnCarrito");
+
+function mostrarTotalProdsEnCarrito() {
+  productosEnCarrito.textContent = carrito.getCantidad();
+}
 
 function tomosEnCarritoHTML(tomo) {
   return `
@@ -72,13 +77,23 @@ function realizarCompra() {
 
   botonRealizarCompra.addEventListener("click", () => {
     if (carrito.estaLleno()) {
-      Swal.fire(
-        "Compra realizada con exito",
-        "Gracias por tu compra, hasta la proxima.",
-        "success"
-      );
-      carrito.vaciar();
-      armarPaginaCarrito();
+      Swal.fire({
+        title: "¿Desea confirmar la compra?",
+        icon: "question",
+        showDenyButton: true,
+        confirmButtonText: "CONFIRMAR",
+        denyButtonText: "CANCELAR",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            "Compra realizada con exito",
+            "Gracias por tu compra, hasta la proxima.",
+            "success"
+          );
+          carrito.vaciar();
+          armarPaginaCarrito();
+        }
+      });
     } else {
       Swal.fire(
         "Seleccionar al menos un tomo",
@@ -93,6 +108,7 @@ function armarPaginaCarrito() {
   armarHTMLCarrito();
   eventosEliminarTomoCarrito();
   calcularDescuento();
+  mostrarTotalProdsEnCarrito();
 }
 
 // ________________________________
